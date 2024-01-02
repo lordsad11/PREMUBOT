@@ -32,33 +32,10 @@ async def expiredUserbots():
                         LOGS_MAKER_UBOT,
                         MSG.EXPIRED_MSG_BOT(X),
                         reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
-                    await bot.send_message(
-                        LOGS_MAKER_UBOT,
-                        f"<b>{X.me.first_name} {X.me.last_name or ''} | <code>{X.me.id}</code> ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ",
                     )
-            except:
-                pass
-        text = await bot.send_message(
-            LOGS_MAKER_UBOT,
-            f"<b>🗓️ Tanggal:</b> <code>{time}</code>\n<b>🕕 Jam:</b> <code>{clock}</code>",
-        )
-        await asyncio.sleep(3600)
-        await text.delete()
-
-
-async def rebot():
-    while True:
-        await asyncio.sleep(3600)
-        try:
-            await bot.send_message(LOGS_MAKER_UBOT, "<b>Auto Restart On...</b>")
-            LOGGER(__name__).info("BOT SERVER RESTARTED !!")
-        except Exception as err:
-            LOGGER(__name__).info(f"{err}")
-        await asyncio.sleep(2)
-        await bot.send_message(LOGS_MAKER_UBOT, "✅ <b>Bot Berhasil Di Restart.</b>")
-        args = [sys.executable, "-m", "PyroUbot"]
-        execle(sys.executable, *args, environ)
-
-
-async def restart_all():
-    asyncio.get_event_loop().create_task(rebot())
+                    await bot.send_message(
+                        X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
+                    )
+            except Exception as e:
+                print(f"Error: - {X.me.id} - :{str(e)}")
+        await asyncio.sleep(10)
