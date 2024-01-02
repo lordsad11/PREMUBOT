@@ -62,7 +62,3 @@ async def rebot():
 
 async def restart_all():
     asyncio.get_event_loop().create_task(rebot())
-  
-            except Exception as e:
-                print(f"Error: - {X.me.id} - :{str(e)}")
-        await asyncio.sleep(10)
