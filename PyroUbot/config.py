@@ -1,19 +1,18 @@
 import os
 
 DEVS = [
-    1715037142,
-    5628785242,
+    1873668175,
 ]
 
 API_ID = int(os.getenv("API_ID", "14920143"))
 
 API_HASH = os.getenv("API_HASH", "5a316e55fb121d9b5e891b5ff07d4677")
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "6491323621:AAGhzFYPgBVbLTiDsJ62DqexCzyYv1y2wwE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "6571031558:AAFyjvrgD7JdyyJN8L5VTeKIgpYehnxN0VE")
 
-OWNER_ID = int(os.getenv("OWNER_ID", "1715037142"))
+OWNER_ID = int(os.getenv("OWNER_ID", "1873668175"))
 
-LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1002016557742"))
+LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1002103823552"))
 
 BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT", "-1001994121863").split()))
 
@@ -31,7 +30,7 @@ OPENAI_KEY = os.getenv(
 
 MONGO_URL = os.getenv(
     "MONGO_URL",
-    "mongodb+srv://AbingPremium:garing225@abingpremium.df0mmwq.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://vewonon211:vewonon211@joysoy.kokbtub.mongodb.net/?retryWrites=true&w=majority",
 )
 
 
