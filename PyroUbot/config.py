@@ -9,11 +9,11 @@ API_ID = int(os.getenv("API_ID", "14920143"))
 
 API_HASH = os.getenv("API_HASH", "5a316e55fb121d9b5e891b5ff07d4677")
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "6461519272:AAFPI2Eno2SmG84cxvw5BCcMWrlMpXbDbtw")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "6491323621:AAGhzFYPgBVbLTiDsJ62DqexCzyYv1y2wwE")
 
 OWNER_ID = int(os.getenv("OWNER_ID", "1715037142"))
 
-LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1001999690360"))
+LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1002083936778"))
 
 BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT", "-1001994121863").split()))
 
