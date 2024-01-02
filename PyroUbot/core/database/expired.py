@@ -8,7 +8,7 @@ async def get_expired_date(user_id):
     if user:
         return user.get("expire_date")
     else:
-        return True
+        return None
 
 
 async def set_expired_date(user_id, expire_date):
