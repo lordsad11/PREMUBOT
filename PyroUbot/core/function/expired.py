@@ -32,8 +32,8 @@ async def expiredUserbots():
                         LOGS_MAKER_UBOT,
                         MSG.EXPIRED_MSG_BOT(X),
                         reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
-                    )
                     await bot.send_message(
+                      LOGS_MAKER_UBOT,
                         X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
                     )
             except:
