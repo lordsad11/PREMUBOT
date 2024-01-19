@@ -13,7 +13,7 @@ async def ohaja(client, callback_query):
         ]
         exp = await get_expired_date(user_id)
         prefix = await get_pref(user_id)
-        waktu = exp.strftime("%d-%m-%Y") if exp else "None"
+        waktu = exp.strftime("%d-%m-%Y") if exp else "True"
         return await callback_query.edit_message_text(
             f"""
 <b>ᴀʙɪɴɢᴜʙᴏᴛ</b>
