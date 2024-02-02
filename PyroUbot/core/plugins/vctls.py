@@ -17,7 +17,7 @@ __MODULE__ = "vctools"
 __HELP__ = f"""
 ✘ Bantuan Untuk Voice Chat
 
-๏ Perintah: <code>{cmd}startvc</code>
+๏ Perintah: <code>{cmd}startvcs</code>
 ◉ Penjelasan: Untuk memulai voice chat grup.
 
 ๏ Perintah: <code>{cmd}stopvc</code>
