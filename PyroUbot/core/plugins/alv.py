@@ -7,8 +7,7 @@ from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
                             InputTextMessageContent)
 
 
-from PyroUbot import *, PyroUbot, get_expired_date, DEVS, get_seles, get_time, Button, unpackInlineMessage, get_var, bot, start_time
-
+from PyroUbot import *
 
 async def alive_cmd(client, message):
     msg = await message.reply("<b>Tunggu Sebentar...</b>", quote=True)
