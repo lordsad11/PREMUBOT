@@ -6,15 +6,21 @@ from pyrogram.raw.functions import Ping
 from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
                             InputTextMessageContent)
 
-from PyroUbot import *
+
+from PyroUbot import *, PyroUbot, get_expired_date, DEVS, get_seles, get_time, Button, unpackInlineMessage, get_var, bot, start_time
 
 
 async def alive_cmd(client, message):
-    x = await client.get_inline_bot_results(
-        bot.me.username, f"alive {message.id} {client.me.id}"
-    )
-    await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
-    
+    msg = await message.reply("<b>Tunggu Sebentar...</b>", quote=True)
+    try:
+        x = await client.get_inline_bot_results(
+            bot.me.username, f"alive {message.id} {client.me.id}"
+        )
+        await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
+        await msg.delete()
+    except Exception as error:
+        await msg.edit(error)
+
 
 async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
@@ -27,32 +33,42 @@ async def alive_query(client, inline_query):
             except Exception:
                 users = random.randrange(await my.get_dialogs_count())
                 group = random.randrange(await my.get_dialogs_count())
-            get_exp = await get_expired_date(my.me.id)            
-            exp = get_exp.strftime("%d-%m-%Y")
-            if my.me.id == OWNER_ID:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘍𝘰𝘶𝘯𝘥𝘦𝘳]</code>"
-            elif my.me.id in await get_seles():
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘈𝘥𝘮𝘪𝘯]</code>"
+            get_exp = await get_expired_date(my.me.id)
+            if get_exp is None:
+                expired = "true"
             else:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b>"
+                exp = get_exp.strftime("%d-%m-%Y")
+                expired = f"<code>{exp}</code>"
+            if my.me.id in DEVS:
+                status = "<b>Premium</b> <code>[OWNER]</code>"
+            elif my.me.id in await get_seles():
+                status = "<b>Premium</b> <code>[OWNER]</code>"
+            else:
+                status = "<b>Premium</b> <code>[OWNER]</code>"
             button = Button.alive(get_id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
             ping = (datetime.now() - start).microseconds / 1000
             uptime = await get_time((time() - start_time))
+            antipm = None
+            cekpc = await get_var(my.me.id, "ENABLE_PM_GUARD")
+            if not cekpc:
+                antipm = "disable"
+            else:
+                antipm = "enable"
             msg = f"""
-<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
-    sᴛᴀᴛᴜs: {status} 
-        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{expired}</code> 
-        ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
-        ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
-        ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
-        ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
-        sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
+<b>Sharing-Userbot</b>
+    <b>status:</b> {status} 
+      <b>dc_id:</b> <code>{my.me.dc_id}</code>
+      <b>ping_dc:</b> <code>{str(ping).replace('.', ',')} ms</code>
+      <b>peer_users:</b> <code>{users} users</code>
+      <b>peer_group:</b> <code>{group} group</code>
+      <b>ubot_uptime:</b> <code>{uptime}</code>
+      <b>expires_on:</b> <code>{expired}</code>
 """
             await client.answer_inline_query(
                 inline_query.id,
-                cache_time=300,
+                cache_time=0,
                 results=[
                     (
                         InlineQueryResultArticle(
@@ -69,7 +85,7 @@ async def alive_close(client, callback_query):
     get_id = callback_query.data.split()
     if not callback_query.from_user.id == int(get_id[2]):
         return await callback_query.answer(
-            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
+            f"❌ Jangan Di Kontol {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
     unPacked = unpackInlineMessage(callback_query.inline_message_id)
@@ -77,4 +93,5 @@ async def alive_close(client, callback_query):
         if callback_query.from_user.id == int(my.me.id):
             await my.delete_messages(
                 unPacked.chat_id, [int(get_id[1]), unPacked.message_id]
-            )
+              )
+              
