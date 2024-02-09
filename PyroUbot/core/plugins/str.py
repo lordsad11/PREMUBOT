@@ -29,9 +29,9 @@ async def ping_cmd(client, message):
 """
     else:
         _ping = f"""
-<b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b>Uptime:</b> <code>{uptime}</code>
-<b>ᴍᴇɴᴛɪᴏɴ:</b> <code>@sharingprembot</code>
+<b>🏓ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b>⏰Uptime:</b> <code>360W.24H.50m.60s</code>
+<b>♨️ᴍᴇɴᴛɪᴏɴ:</b> <code>@sharingprembot</code>
 """
     await message.reply(_ping)
 
