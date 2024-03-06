@@ -2,8 +2,7 @@ import os
 
 DEVS = [
     1978415696,
-    2033248262,
-    6980654842,
+    
 ]
 
 API_ID = int(os.getenv("API_ID", "14920143"))
