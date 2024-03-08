@@ -22,12 +22,12 @@ async def ping_cmd(client, message):
     if client.me.is_premium:
         _ping = f"""
 <b><emoji id={emot_pong}>🏓</emoji>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id={emot_mention}>👑</emoji>ᴍᴇɴᴛɪᴏɴ:</b> <code>aiu_ubot</code>
+<b><emoji id={emot_mention}>👑</emoji>ᴍᴇɴᴛɪᴏɴ:</b> <code> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> </code>
 """
     else:
         _ping = f"""
 <b>ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b>ᴍᴇɴᴛɪᴏɴ:</b> <code>aiu_ubot</code>
+<b>ᴍᴇɴᴛɪᴏɴ:</b> <code> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> </code>
 """
     await message.reply(_ping)
 
