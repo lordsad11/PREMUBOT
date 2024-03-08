@@ -244,7 +244,7 @@ async def bikin_ubot(client, callback_query):
 <b>👤 ɴᴀᴍᴇ :</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a>
 <b>📋 ɪᴅ :</b> <code>{new_client.me.id}</code>
 <b>🔧 ᴘʀᴇғɪxᴇs :</b>{"."}</b>
-<b>📅 ᴇxᴘɪʀᴇᴅ :</b>{uptime}</b>
+<b>📅 ᴇxᴘɪʀᴇᴅ :</b>{remaining_days}</b>
         """
     await bot_msg.edit(text_done)
     await install_my_peer(new_client)
