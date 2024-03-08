@@ -30,7 +30,7 @@ async def alive_query(client, inline_query):
             get_exp = await get_expired_date(my.me.id)            
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘍𝘰𝘶𝘯𝘥𝘦𝘳]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴅᴇᴠ]</code>"
             elif my.me.id in await get_seles():
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘈𝘥𝘮𝘪𝘯]</code>"
             else:
@@ -43,7 +43,7 @@ async def alive_query(client, inline_query):
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
     sᴛᴀᴛᴜs: {status} 
-        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{expired}</code> 
+        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{remaining_days}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
         ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
         ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
