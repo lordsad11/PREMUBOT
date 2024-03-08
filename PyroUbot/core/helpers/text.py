@@ -38,8 +38,8 @@ class MSG:
 
 <b>💳 ᴍᴏᴛᴏᴅᴇ ᴘᴇᴍʙᴀʏᴀʀᴀɴ:</b>
  <b>├──• ᴅᴀɴᴀ </b>
- <b>├─• <code>BAGI LINK VVIP</code></b>
- <b>└──• <a BAGI VVIP</a></b>
+ <b>├─• <code>087815253955</code></b>
+ <b>└──• <a href=https://telegra.ph/file/5c85bdb1fa53846871d5b.jpg>ᴋʟɪᴋ ᴅɪsɪɴɪ</a></b>
 
 <b>🔖 ᴛᴏᴛᴀʟ ʜᴀʀɢᴀ: ʀᴘ {total}.000</b>
 <b>🗓️ ᴛᴏᴛᴀʟ ʙᴜʟᴀɴ: {bulan}</b> 
