@@ -30,7 +30,7 @@ async def alive_query(client, inline_query):
             get_exp = await get_expired_date(my.me.id)            
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
-                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴅᴇᴠ]</code>"
+                status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴅᴇᴠᴇʟᴏᴘᴇʀ]</code>"
             elif my.me.id in await get_seles():
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[𝘈𝘥𝘮𝘪𝘯]</code>"
             else:
