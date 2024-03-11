@@ -7,7 +7,7 @@ from platform import python_version
 from pyrogram import __version__
 
 from pyrogram.raw.functions import Ping
-from PyroUbot.core.database.max import get_uptime
+#from PyroUbot.core.database.max import get_uptime
 from PyroUbot.core.helpers.uptime import get_time
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
