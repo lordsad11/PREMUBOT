@@ -43,7 +43,7 @@ async def alive_query(client, inline_query):
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
     sᴛᴀᴛᴜs: {status} 
-        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{expired_date}</code> 
+        ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{expired}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
         ᴘɪɴɢ_ᴅᴄ: <code>{ping} ᴍs</code>
         ᴘᴇᴇʀ_ᴜsᴇʀs: <code>{users} ᴜsᴇʀs</code>
@@ -52,7 +52,7 @@ async def alive_query(client, inline_query):
 """
             await client.answer_inline_query(
                 inline_query.id,
-                cache_time=300,
+                cache_time=0,
                 results=[
                     (
                         InlineQueryResultArticle(
