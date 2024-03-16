@@ -31,7 +31,7 @@ OPENAI_KEY = os.getenv(
 
 MONGO_URL = os.getenv(
     "MONGO_URL",
-    "mongodb+srv://xcimatol9:xcimatol9@xcimatol.mrjzu0l.mongodb.net/?retryWrites=true&w=majority&appName=xcimatol",
+    "mongodb+srv://xcimatol9:xcimatol9@xcimatol.mrjzu0l.mongodb.net/?retryWrites=true&w=majority",
 )
 
 
