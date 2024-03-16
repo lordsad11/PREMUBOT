@@ -99,7 +99,18 @@ async def bikin_memek(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    
+    if user_id not in await get_prem():
+        buttons = [
+            [InlineKeyboardButton("ʙᴇʟɪ ᴜsᴇʀʙᴏᴛ", callback_data="bahan")],
+            [InlineKeyboardButton("ᴋᴇᴍʙᴀʟɪ", callback_data=f"home {user_id}")],
+        ]
+        return await callback_query.edit_message_text(
+            f"""
+<b>❌ ᴍᴀᴀꜰ ᴀɴᴅᴀ ʙᴇʟᴜᴍ ᴍᴇᴍʙᴇʟɪ ᴜꜱᴇʀʙᴏᴛ, ꜱɪʟᴀᴋᴀɴ ᴍᴇᴍʙᴇʟɪ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ.</b>
+""",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(buttons),
+        )
     else:
         buttons = [[InlineKeyboardButton("ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="add_ubot")]]
         return await callback_query.edit_message_text(
@@ -239,13 +250,7 @@ async def bikin_ubot(client, callback_query):
         await remove_prem(callback_query.from_user.id)
     for mod in loadModule():
         importlib.reload(importlib.import_module(f"PyroUbot.modules.{mod}"))
-    text_done = f"""
-<b>🤖 USERBOT TELAH AKTIFKAN!!!</b>
-<b>👤 ɴᴀᴍᴇ :</b> <a href=tg://user?id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a>
-<b>📋 ɪᴅ :</b> <code>{new_client.me.id}</code>
-<b>🔧 ᴘʀᴇғɪxᴇs :</b>{"."}</b>
-<b>📅 ᴇxᴘɪʀᴇᴅ :</b>{exp}</b>
-        """
+    text_done = f"<b>🔥 {bot.me.mention} Berhasil Di Aktifkan Di Akun :\n<a href=tg://openmessage?user_id={new_client.me.id}>{new_client.me.first_name} {new_client.me.last_name or ''}</a> > <code>{new_client.me.id}</code></b> "
     await bot_msg.edit(text_done)
     await install_my_peer(new_client)
     try:
@@ -398,3 +403,4 @@ async def is_cancel(callback_query, text):
         )
         return True
     return False
+        
