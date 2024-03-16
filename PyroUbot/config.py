@@ -15,9 +15,6 @@ OWNER_ID = int(os.getenv("OWNER_ID", "1978415696"))
 
 LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1002073087511"))
 
-LOGS = int(getenv("LOGS", "-1002073087511"))
-
-
 BLACKLIST_CHAT = list(map(int, os.getenv("BLACKLIST_CHAT", "-1002073087511").split()))
 
 MAX_BOT = int(os.getenv("MAX_BOT", "550"))
