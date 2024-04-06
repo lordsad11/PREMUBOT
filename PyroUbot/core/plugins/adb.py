@@ -254,10 +254,10 @@ async def bikin_ubot(client, callback_query):
     await bot_msg.edit(text_done)
     await install_my_peer(new_client)
     try:
-        await new_client.join_chat("aiusupportt")
-        await new_client.join_chat("MusiknyaTelegram")
-        await new_client.join_chat("AlterBaseChat")
-        await new_client.join_chat("VicidiorSupport")
+        await new_client.join_chat
+        await new_client.join_chat
+        await new_client.join_chat
+        await new_client.join_chat
     except UserAlreadyParticipant:
         pass
     
