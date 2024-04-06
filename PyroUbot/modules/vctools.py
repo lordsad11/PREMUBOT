@@ -56,7 +56,7 @@ async def get_group_call(
     await eor(message, f"**No group call Found** {err_msg}")
     return False
 
-@PY.UBOT("jvc")
+@PY.UBOT("naikos")
 async def join_os(client, message):
     # global turun_dewek
     ky = await message.reply("<code>Processing....</code>")
@@ -86,7 +86,7 @@ async def join_os(client, message):
         except Exception as e:
             return await ky.edit(f"ERROR: {e}")
 
-@PY.UBOT("lvc")
+@PY.UBOT("turunos")
 async def turun_os(client, message):
     # global turun_dewek
     ky = await message.reply("<code>Processing....</code>")
