@@ -33,7 +33,7 @@ logger.addHandler(connection_handler)
 
 class Bot(Client):
     def __init__(self, **kwargs):
-        super().__init__(**kwargs, device_model="ᴀɪᴜ ᴜʙᴏᴛ")
+        super().__init__(**kwargs, device_model="ʀᴇx ʀᴏʙᴏᴛ")
 
     def on_message(self, filters=None, group=-1):
         def decorator(func):
