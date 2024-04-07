@@ -21,16 +21,16 @@ __HELP__ = f"""
 Bantuan Untuk Voice Chat
 
 
-• Perintah: <code>{cobadah}startvc</code>
+• Perintah: <code>startvc</code>
 • Penjelasan: Untuk memulai voice chat grup.
 
-• Perintah: <code>{cobadah}stopvc</code>
+• Perintah: <code>stopvc</code>
 • Penjelasan: Untuk mengakhiri voice chat grup.
 
-• Perintah: <code>{cobadah}joinvc</code>
+• Perintah: <code>joinvc</code>
 • Penjelasan: Untuk bergabung voice chat grup.
 
-• Perintah: <code>{cobadah}leavevc</code>
+• Perintah: <code>leavevc</code>
 • Penjelasan: Untuk meninggalkan voice chat grup.
 
 
