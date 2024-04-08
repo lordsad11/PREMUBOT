@@ -56,7 +56,7 @@ async def get_group_call(
     await eor(message, f"**No group call Found** {err_msg}")
     return False
 
-@PY.UBOT("joinvc")
+@PY.CALL.PY("joinvc")
 async def join_os(client, message):
     # global turun_dewek
     ky = await message.reply("<code>Processing....</code>")
