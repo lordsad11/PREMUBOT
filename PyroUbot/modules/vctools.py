@@ -11,7 +11,7 @@ from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
 
 from PyroUbot import *
-from pytgcalls import GroupCallFactory 
+from pytgcalls.exceptions import GroupCallFactory 
 
 MODULE = "vctools"
 HELP = f"""
