@@ -1,3 +1,4 @@
+
 __MODULE__ = "ᴠᴄᴛᴏᴏʟꜱ"
 __HELP__ = """
 
@@ -67,7 +68,8 @@ async def join_os(client, message):
         try:
             # daftar_join.append(chat_id)
             # if turun_dewek: turun_dewek = True
-            await client.call_py.join_group_call(chat_id)
+            await client.call_py.join_group_call(
+                chat_id,
                 InputStream(
                     InputAudioStream(
                         file,
@@ -147,4 +149,4 @@ async def stop_vctools(client, message):
     await client.invoke(DiscardGroupCall(call=group_call))
     await ky.edit(
         f"<b>• Obrolan Suara Diakhiri</b>\n<b>• Chat : </b><code>{message.chat.title}</code>"
-                   )
+      )
