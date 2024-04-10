@@ -23,7 +23,7 @@ __HELP__ = """
 • Penjelasan:  Coba sendiri.
 """
 
-"""
+""
 @PY.UBOT("loveyou")
 async def _(client, message):
     await lopeyo(client, message)
@@ -64,7 +64,6 @@ async def _(client, message):
 @PY.UBOT("tank")
 async def _(client, message):
     await tank(client, message)
-"""
 
 @PY.UBOT("babi")
 async def _(client, message):
