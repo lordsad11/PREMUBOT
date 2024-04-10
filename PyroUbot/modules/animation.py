@@ -47,7 +47,7 @@ from pyrogram.errors.exceptions.flood_420 import FloodWait
 from pyrogram.types import *
 from pyrogram.types import Message
 
-from ubot import *
+from PyroUbot import *
 
 
 
