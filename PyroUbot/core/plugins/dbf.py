@@ -237,7 +237,7 @@ async def expired_cek(client, message):
     if expired_date is None:
         await message.reply(f"{user_id} ʙᴇʟᴜᴍ ᴅɪᴀᴋᴛɪғᴋᴀɴ.")
     else:
-        remaining_days = (expired_date - datetime.now()).days
+        remaining_days = (expired_date - datetime.now)).days
         await message.reply(
             f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
         )
