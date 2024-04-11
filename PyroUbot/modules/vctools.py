@@ -59,7 +59,7 @@ async def get_group_call(
 
 
 @PY.UBOT("startvc")
-async def _(c: nlx, m):
+async def
     em = Emojik()
     em.initialize()
     flags = " ".join(m.command[1:])
@@ -84,7 +84,7 @@ async def _(c: nlx, m):
 
 
 @PY.UBOT("stopvc")
-async def _(c: nlx, m):
+async def
     em = Emojik()
     em.initialize()
     ky = await m.reply(cgr("proses").format(em.proses))
@@ -101,7 +101,7 @@ Ini Gw Bikin Dewek Ya Anj, Kalo Masih Dikata Copas Coba Cari Jing. ANAK KONTOL E
 
 
 @PY.UBOT("vctitle")
-async def _(c: nlx, m):
+async def
     em = Emojik()
     em.initialize()
     txt = c.get_arg(m)
@@ -121,7 +121,7 @@ async def _(c: nlx, m):
 
 
 @PY.UBOT("joinvc")
-async def _(c: nlx, m):
+async def
     em = Emojik()
     em.initialize()
 
@@ -142,7 +142,7 @@ async def _(c: nlx, m):
 
 
 @PY.UBOT("leavevc")
-async def _(c: nlx, m):
+async def
     em = Emojik()
     em.initialize()
     ky = await m.reply(cgr("proses").format(em.proses))
