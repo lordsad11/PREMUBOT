@@ -1,152 +1,95 @@
-
-__MODULE__ = "ᴠᴄᴛᴏᴏʟꜱ"
-__HELP__ = """
-
-<b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴠᴄᴛᴏᴏʟꜱ 』</b>
-
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}joinvc</code>
-  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ʙᴇʀɢᴀʙᴜɴɢ ᴋᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɢʀᴏᴜᴘ
-
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}leavevc</code>
-  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɪɴɢɢᴀʟᴋᴀɴ ᴅᴀʀɪ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɢʀᴏᴜᴘ
-
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}startvc</code>
-  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇᴍᴜʟᴀɪ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɢʀᴜᴘ
-
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}stopvc</code>
-  <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴋʜɪʀɪ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɢʀᴜᴘ
-"""
-
-
 from asyncio import sleep
-
 from contextlib import suppress
-
 from random import randint
 from typing import Optional
 
-from pyrogram import Client, enums
+from pyrogram import Client, enums, filters
 from pyrogram.raw.functions.channels import GetFullChannel
 from pyrogram.raw.functions.messages import GetFullChat
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from pyrogram.types import Message
-from pytgcalls.exceptions import AlreadyJoinedError
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from PyroUbot import *
 
+MODULE = "vctools"
+HELP = f"""
+✘ Bantuan Untuk Voice Chat
+
+๏ Perintah: <code>startvc</code>
+◉ Penjelasan: Untuk memulai voice chat grup.
+
+๏ Perintah: <code>stopvc</code>
+◉ Penjelasan: Untuk mengakhiri voice chat grup.
+           
+๏ Perintah: <code>joinvc</code>
+◉ Penjelasan: Untuk bergabung voice chat grup.
+
+๏ Perintah: <code>leavevc</code>
+◉ Penjelasan: Untuk meninggalkan voice chat grup.
+"""
+
+
 async def get_group_call(
-
     client: Client, message: Message, err_msg: str = ""
-
 ) -> Optional[InputGroupCall]:
     chat_peer = await client.resolve_peer(message.chat.id)
     if isinstance(chat_peer, (InputPeerChannel, InputPeerChat)):
         if isinstance(chat_peer, InputPeerChannel):
-            full_chat = (
-                await client.invoke(GetFullChannel(channel=chat_peer))
-            ).full_chat
+            full_chat = (await client.send(GetFullChannel(channel=chat_peer))).full_chat
         elif isinstance(chat_peer, InputPeerChat):
             full_chat = (
-                await client.invoke(GetFullChat(chat_id=chat_peer.chat_id))
+                await client.send(GetFullChat(chat_id=chat_peer.chat_id))
             ).full_chat
         if full_chat is not None:
             return full_chat.call
-    await eor(message, f"**No group call Found** {err_msg}")
+    await eor(message, f"No group call Found {err_msg}")
     return False
 
+list_data = []
+
+
+def remove_list(user_id):
+    list_data[:] = [item for item in list_data if item.get("id") != user_id]
+
+
+def add_list(user_id, text):
+    data = {"id": user_id, "nama": text}
+    list_data.append(data)
+
+
+def get_list():
+    if not list_data:
+        return "<b>ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴜsᴇʀ ᴅɪ ᴅᴀʟᴀᴍ ᴏʙʀᴏʟᴀɴ sᴜᴀʀᴀ ᴍᴀɴᴀᴘᴜɴ</b>"
+
+    msg = "\n".join(item["nama"] for item in list_data)
+    return msg
+
+
 @PY.UBOT("joinvc")
-async def join_os(client, message):
-    # global turun_dewek
-    ky = await message.reply("<code>Processing....</code>")
+async def _(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    with suppress(ValueError):
-        chat_id = int(chat_id)
-    if chat_id:
-        file = "./storage/vc.mp3"
-        try:
-            # daftar_join.append(chat_id)
-            # if turun_dewek: turun_dewek = True
-            await client.call_py.join_group_call(
-                chat_id,
-                InputStream(
-                    InputAudioStream(
-                        file,
-                    ),
-                ),
-            )
-            await sleep(2)
-            await ky.edit(
-                f"❏ <b>Berhasil Join Voice Chat</b>\n└ <b>Chat :</b><code>{message.chat.title}</code>"
-            )
-            await sleep(1)
-        except AlreadyJoinedError:
-            await ky.edit("Akun anda sudah diatas.")
-        except Exception as e:
-            return await ky.edit(f"ERROR: {e}")
+    text = f"• <b>[{client.me.first_name} {client.me.last_name or ''}](tg://user?id={client.me.id})</b> | <code>{chat_id}</code>"
+    try:
+        await client.group_call.start(chat_id, join_as=client.me.id)
+    except Exception as e:
+        return await message.reply(f"ERROR: {e}")
+    await message.reply("<b>izin parkir puh</b>")
+    await asyncio.sleep(5)
+    await client.group_call.set_is_mute(True)
+    add_list(client.me.id, text)
+
 
 @PY.UBOT("leavevc")
-async def turun_os(client, message):
-    # global turun_dewek
-    ky = await message.reply("<code>Processing....</code>")
-    chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    with suppress(ValueError):
-        chat_id = int(chat_id)
-    if chat_id:
-        try:
-            # daftar_join.remove(chat_id)
-            await client.call_py.leave_group_call(chat_id)
-            # turun_dewek = True
-            await ky.edit(
-                f"❏ <b>Berhasil Meninggalkan Voice Chat</b>\n└ <b>Chat :</b><code>{message.chat.title}</code>"
-            )
-        except Exception as e:
-            return await ky.edit(f"<b>ERROR:</b> {e}")
-
-@PY.UBOT("startvc")
-async def start_vctools(client, message):
-    flags = " ".join(message.command[1:])
-    ky = await message.reply("<code>Processing....</code>")
-    vctitle = get_arg(message)
-    if flags == enums.ChatType.CHANNEL:
-        chat_id = message.chat.title
-    else:
-        chat_id = message.chat.id
-    args = (
-        f"<b>• Obrolan Suara Aktif</b>\n<b>• Chat : </b><code>{message.chat.title}</code>"
-    )
+async def _(client, message):
     try:
-        if not vctitle:
-            await client.invoke(
-                CreateGroupCall(
-                    peer=(await client.resolve_peer(chat_id)),
-                    random_id=randint(10000, 999999999),
-                )
-            )
-        else:
-            args += f"\n • <b>Title : </b> <code>{vctitle}</code>"
-            await client.invoke(
-                CreateGroupCall(
-                    peer=(await client.resolve_peer(chat_id)),
-                    random_id=randint(10000, 999999999),
-                    title=vctitle,
-                )
-            )
-        await ky.edit(args)
+        await client.group_call.stop()
     except Exception as e:
-        await ky.edit(f"<b>INFO:</b> `{e}`")
+        return await message.reply(f"ERROR: {e}")
+    remove_list(client.me.id)
+    return await message.reply("<b>izin turun puh</b>")
 
 
-@PY.UBOT("stopvc")
-async def stop_vctools(client, message):
-    ky = await message.reply("<code>Processing....</code>")
-    message.chat.id
-    if not (
-        group_call := (await get_group_call(client, message, err_msg=", Kesalahan..."))
-    ):
-        return
-    await client.invoke(DiscardGroupCall(call=group_call))
-    await ky.edit(
-        f"<b>• Obrolan Suara Diakhiri</b>\n<b>• Chat : </b><code>{message.chat.title}</code>"
-      )
+@PY.UBOT("listos")
+async def _(client, message):
+    await message.reply(get_list())
