@@ -58,7 +58,7 @@ async def get_group_call(
     return False
 
 
-@ky.ubot("startvc", sudo=True)
+@PY.UBOT("startvc")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -83,7 +83,7 @@ async def _(c: nlx, m):
         return
 
 
-@ky.ubot("stopvc", sudo=True)
+@PY.UBOT("stopvc")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -100,7 +100,7 @@ Ini Gw Bikin Dewek Ya Anj, Kalo Masih Dikata Copas Coba Cari Jing. ANAK KONTOL E
 """
 
 
-@ky.ubot("vctitle", sudo=True)
+@PY.UBOT("vctitle")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -120,8 +120,7 @@ async def _(c: nlx, m):
     return
 
 
-@ky.ubot("joinvc", sudo=True)
-@ky.devs("Jvcs")
+@PY.UBOT("joinvc")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -142,8 +141,7 @@ async def _(c: nlx, m):
             return await ky.edit(cgr("err").format(em.gagal, e))
 
 
-@ky.ubot("leavevc", sudo=True)
-@ky.devs("Lvcs")
+@PY.UBOT("leavevc")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
