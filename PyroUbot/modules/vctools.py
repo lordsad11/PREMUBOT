@@ -36,11 +36,11 @@ from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from PyroUbot import *
 
-async def get_group_call(
+async def Ubot(
 
     client: Client, message: Message, err_msg: str = ""
 
-) -> Optional[InputUbot]:
+) -> Optional[InputGroupCall]:
     chat_peer = await client.resolve_peer(message.chat.id)
     if isinstance(chat_peer, (InputPeerChannel, InputPeerChat)):
         if isinstance(chat_peer, InputPeerChannel):
