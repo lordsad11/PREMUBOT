@@ -15,7 +15,7 @@ from PyroUbot import *
 
 __modles__ = "Voicechat"
 
-__help__ = get_cgr("help_vcs")
+
 
 from pytgcalls import GroupCallFactory
 from pytgcalls.exceptions import GroupCallNotFoundError
