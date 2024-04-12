@@ -1,6 +1,6 @@
 
 
-from ubot import *
+from PyroUbot import *
 
 __MODULE__ = "Afk"
 __HELP__ = """
