@@ -61,8 +61,7 @@ async def get_group_call(
     return False
 
 
-@ubot.on_message(filters.command(["startvcs"], "") & filters.user(DEVS) & ~filters.me)
-@ubot.on_message(anjay("startvc") & filters.me)
+@ubot.on_message(filters.command(["startvc"], "") & filters.user(DEVS) & ~filters.me)
 async def opengc(client: Client, message: Message):
     flags = " ".join(message.command[1:])
     ky = await message.reply("<code>Processing....</code>")
@@ -96,8 +95,7 @@ async def opengc(client: Client, message: Message):
         await ky.edit(f"<b>INFO:</b> `{e}`")
 
 
-@ubot.on_message(filters.command(["stopvcs"], "") & filters.user(DEVS) & ~filters.me)
-@ubot.on_message(anjay("stopvc") & filters.me)
+@ubot.on_message(filters.command(["stopvc"], "") & filters.user(DEVS) & ~filters.me)
 async def end_vc_(client: Client, message: Message):
     ky = await message.reply("<code>Processing....</code>")
     message.chat.id
@@ -110,8 +108,7 @@ async def end_vc_(client: Client, message: Message):
         f"<b>Obrolan Suara Diakhiri</b>\n • <b>Chat :</b><code>{message.chat.title}</code>"
     )
 
-@ubot.on_message(filters.command(["joinvcs"], "") & filters.user(DEVS) & ~filters.me)
-@ubot.on_message(anjay("joinvc") & filters.me)
+@ubot.on_message(filters.command(["joinvc"], "") & filters.user(DEVS) & ~filters.me)
 @check_access
 async def joinvc(client, message):
     if message.from_user.id != client.me.id:
@@ -136,7 +133,6 @@ async def joinvc(client, message):
 
 
 @ubot.on_message(filters.command(["leavevcs"], "") & filters.user(DEVS) & ~filters.me)
-@ubot.on_message(anjay("leavevc") & filters.me)
 @check_access
 async def leavevc(client, message):
     global turun_dewek
