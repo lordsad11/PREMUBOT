@@ -18,22 +18,22 @@ Bantuan Untuk Voice Chat
 """
 
 
-@PY.UBOT("startvc", sudo=True)
+@PY.UBOT("startvc")
 async def _(client, message):
     await start_vctools(client, message)
 
 
-@PY.UBOT("stopvc", sudo=True)
+@PY.UBOT("stopvc")
 async def _(client, message):
     await stop_vctools(client, message)
 
 
-@PY.UBOT("joinvc", sudo=True)
+@PY.UBOT("joinvc")
 async def _(client, message):
     await join_os(client, message)
 
 
-@PY.UBOT("leavevc", sudo=True)
+@PY.UBOT("leavevc")
 async def _(client, message):
     await turun_os(client, message)
     
