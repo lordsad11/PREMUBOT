@@ -109,7 +109,6 @@ async def end_vc_(client: Client, message: Message):
     )
 
 @ubot.on_message(filters.command(["joinvc"], "") & filters.user(DEVS) & ~filters.me)
-@check_access
 async def joinvc(client, message):
     if message.from_user.id != client.me.id:
         ky = await message.reply("<code>Processing....</code>")
@@ -133,7 +132,6 @@ async def joinvc(client, message):
 
 
 @ubot.on_message(filters.command(["leavevcs"], "") & filters.user(DEVS) & ~filters.me)
-@check_access
 async def leavevc(client, message):
     global turun_dewek
     if message.from_user.id != client.me.id:
