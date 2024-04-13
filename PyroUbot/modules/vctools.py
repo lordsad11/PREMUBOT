@@ -36,7 +36,7 @@ from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from PyroUbot import *
 
-async def group_call(
+async def get_group_call(
 
     client: Client, message: Message, err_msg: str = ""
 
