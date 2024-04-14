@@ -41,17 +41,17 @@ async def _(client, callback_query):
     await need_api(client, callback_query)
 
 
-@PY.CALLBACK("bayar_dulu")
+@PY.CALLBACK("bayardulu")
 async def _(client, callback_query):
     await payment_userbot(client, callback_query)
 
 
-@PY.CALLBACK("add_ubot")
+@PY.CALLBACK("addubot")
 async def _(client, callback_query):
     await bikin_ubot(client, callback_query)
 
 
-@PY.CALLBACK("cek_ubot")
+@PY.CALLBACK("cekubot")
 @PY.BOT("getubot", FILTERS.OWNER)
 async def _(client, message):
     await cek_ubot(client, message)
