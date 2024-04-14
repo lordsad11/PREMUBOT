@@ -33,7 +33,7 @@ async def _(client, message):
 
 @PY.BOT("time", FILTERS.OWNER)
 async def _(client, message):
-    await expired_add(client, message)
+    await expiredadd(client, message)
 
 
 @PY.BOT("cek", FILTERS.OWNER)
@@ -43,12 +43,12 @@ async def _(client, message):
 
 @PY.BOT("untime", FILTERS.OWNER)
 async def _(client, message):
-    await un_expired(client, message)
+    await unexpired(client, message)
 
 
 @PY.CALLBACK("restart")
 async def _(client, callback_query):
-    await cb_restart(client, callback_query)
+    await cbrestart(client, callback_query)
 
 
 @PY.CALLBACK("gitpull")
