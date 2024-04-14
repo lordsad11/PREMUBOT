@@ -246,7 +246,7 @@ async def expired_add(client, message):
     except Exception as error:
         return await Tm.edit(str(error))
     if not get_day:
-        get_day = 30
+        get_day = 99999999
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=int(get_day))
     await set_expired_date(user_id, expire_date)
