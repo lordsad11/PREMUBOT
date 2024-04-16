@@ -233,85 +233,45 @@ async def get_seles_user(client, message):
 # ========================== #
 
 async def expired_add(client, message):
-    Tm = await message.reply("Processing...")
-    if message.from_user.id not in USER_ID:
-        return await Tm.edit(
-            "Anda siapa ?"
-        )
+    Tm = await message.reply("<b>ᴘʀᴏᴄᴇssɪɴɢ . . .</b>")
     user_id, get_day = await extract_user_and_reason(message)
     if not user_id:
-        return await Tm.edit(f"{message.text} user_id/username - hari")
+        return await Tm.edit(f"<b>{message.text} ᴜsᴇʀ_ɪᴅ/ᴜsᴇʀɴᴀᴍᴇ - ʜᴀʀɪ</b>")
     try:
         get_id = (await client.get_users(user_id)).id
     except Exception as error:
-        return await Tm.edit(str(error))
+        return await Tm.edit(error)
     if not get_day:
-        get_day = 99999999
+        get_day = 30
     now = datetime.now(timezone("Asia/Jakarta"))
     expire_date = now + timedelta(days=int(get_day))
     await set_expired_date(user_id, expire_date)
-    await Tm.edit(f"{get_id} telah diaktifkan selama {get_day} hari.")
-    
+    await Tm.edit(f"{get_id} ᴛᴇʟᴀʜ ᴅɪᴀᴋᴛɪғᴋᴀɴ sᴇʟᴀᴍᴀ {get_day} ʜᴀʀɪ.")
+
 
 async def expired_cek(client, message):
     user_id = await extract_user(message)
     if not user_id:
-        return await message.reply("Pengguna tidak ditemukan")
+        return await message.reply("ᴘᴇɴɢɢᴜɴᴀ ᴛɪᴅᴀᴋ ᴛᴇᴍᴜᴋᴀɴ")
     expired_date = await get_expired_date(user_id)
     if expired_date is None:
-        await message.reply(f"{user_id} belum diaktifkan.")
+        await message.reply(f"{user_id} ʙᴇʟᴜᴍ ᴅɪᴀᴋᴛɪғᴋᴀɴ.")
     else:
         remaining_days = (expired_date - datetime.now()).days
         await message.reply(
-            f"{user_id} aktif hingga {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. Sisa waktu aktif {remaining_days} hari."
+            f"{user_id} ᴀᴋᴛɪғ ʜɪɴɢɢᴀ {expired_date.strftime('%d-%m-%Y %H:%M:%S')}. sɪsᴀ ᴡᴀᴋᴛᴜ ᴀᴋᴛɪғ {remaining_days} ʜᴀʀɪ."
         )
+
 
 async def un_expired(client, message):
     user_id = await extract_user(message)
-    Tm = await message.reply("Memproses...")
-    if message.from_user.id not in USER_ID:
-        return await Tm.edit(
-            "Anda siapa ?"
-        )
+    Tm = await message.reply("</b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
     if not user_id:
-        return await Tm.edit("User tidak ditemukan")
+        return await Tm.edit("<b>ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     try:
         user = await client.get_users(user_id)
     except Exception as error:
-        return await Tm.edit(str(error))
+        return await Tm.edit(error)
     await rem_expired_date(user.id)
-    return await Tm.edit(f"✅ {user.id} expired telah dihapus")
-
-
-
-
-
-async def bacotan(_, message: Message):
-    await message.delete()
-    siapa = message.from_user.id
-    if len(message.command) > 1:
-        text = " ".join(message.command[1:])
-    elif message.reply_to_message is not None:
-        text = message.reply_to_message.text
-    else:
-        return await message.reply(
-            "<code>Silakan sertakan pesan atau balas pesan yang ingin disiarkan.</code>"
-        )
-    kntl = 0
-    mmk = []
-    jmbt = len(await get_served_users())
-    babi = await get_served_users()
-    for x in babi:
-            mmk.append(int(x["user_id"]))
-    if OWNER_ID in mmk:
-            mmk.remove(OWNER_ID)
-    for i in mmk:
-        try:
-            await bot.send_message(i, text)
-            kntl += 1
-        except:
-            pass
-    return await message.reply(f"**Berhasil mengirim pesan ke `{kntl}` pengguna, dari `{jmbt}` pengguna.**")
-    
-
-    
+    return await Tm.edit(f"<b>✅ {user.id} ᴇxᴘɪʀᴇᴅ ᴛᴇʟᴀʜ ᴅɪʜᴀᴘᴜs</b>")
+                             
