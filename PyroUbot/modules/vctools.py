@@ -79,7 +79,7 @@ async def _(client, message):
         return await message.reply(f"ERROR: {e}")
     await message.reply("<b>izin parkir puh</b>")
     await asyncio.sleep(5)
-    await client.group_call.set_is_mute(True)
+    await client.Ubot.set_is_mute(True)
     add_list(client.me.id, text)
 
 
