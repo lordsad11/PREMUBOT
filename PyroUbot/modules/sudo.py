@@ -1,6 +1,4 @@
-from PyroUbot import SUDO_USER
-from PyroUbot import OWNER_ID, DB_SUDO
-from PyroUbot import SUDO_USERS, USER_ID
+
 from PyroUbot import *
 
 __MODULE__ = "sudo"
