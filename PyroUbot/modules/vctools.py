@@ -74,19 +74,19 @@ async def _(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     text = f"• <b>[{client.me.first_name} {client.me.last_name or ''}](tg://user?id={client.me.id})</b> | <code>{chat_id}</code>"
     try:
-        await client.Ubot.start(chat_id, join_as=client.me.id)
+        await client.PyroUbot.start(chat_id, join_as=client.me.id)
     except Exception as e:
         return await message.reply(f"ERROR: {e}")
     await message.reply("<b>izin parkir puh</b>")
     await asyncio.sleep(5)
-    await client.Ubot.set_is_mute(True)
+    await client.PyroUbot.set_is_mute(True)
     add_list(client.me.id, text)
 
 
 @PY.UBOT("leavevc")
 async def _(client, message):
     try:
-        await client.group_call.stop()
+        await client.PyroUbot.stop()
     except Exception as e:
         return await message.reply(f"ERROR: {e}")
     remove_list(client.me.id)
