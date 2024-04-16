@@ -47,7 +47,7 @@ async def get_group_call(
         if full_chat is not None:
             return full_chat.call
     await eor(message, f"No group call Found {err_msg}")
-    return False
+    return True
 
 list_data = []
 
