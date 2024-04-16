@@ -44,5 +44,4 @@ from PyroUbot.core.plugins.zbs import *
 from PyroUbot.core.plugins.tr import *
 from PyroUbot.core.plugins.gratis import *
 from PyroUbot.core.plugins.anm import *
-from PyroUbot.core.plugins.afknya import *
 from PyroUbot.core.plugins.slam import *
