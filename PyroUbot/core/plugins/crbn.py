@@ -23,15 +23,15 @@ async def carbon_func(client, message):
         text = message.reply_to_message.text or message.reply_to_message.caption
     if not text:
         return await message.delete()
-    ex = await message.reply("ᴍᴇᴍᴘʀᴏꜱᴇꜱ . . .")
+    ex = await message.reply("Processing...")
     carbon = await make_carbon(text)
-    await ex.edit("ᴜᴘʟᴏᴀᴅɪɴɢ . . .")
+    await ex.edit("Uploading...")
     await asyncio.gather(
         ex.delete(),
         client.send_photo(
             message.chat.id,
             carbon,
-            caption=f"<b>ᴄᴀʀʙᴏɴɪꜱᴇᴅ by :</b>{client.me.mention}",
+            caption=f"<b>Carbonised By : </b>{client.me.mention}",
         ),
     )
     carbon.close()
