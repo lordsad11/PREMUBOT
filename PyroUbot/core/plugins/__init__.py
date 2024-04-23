@@ -45,4 +45,3 @@ from PyroUbot.core.plugins.tr import *
 from PyroUbot.core.plugins.gratis import *
 from PyroUbot.core.plugins.anm import *
 from PyroUbot.core.plugins.slam import *
-from PyroUbot.core.plugins.vctools import *
