@@ -68,7 +68,7 @@ async def join_os(client, message):
         try:
             # daftar_join.append(chat_id)
             # if turun_dewek: turun_dewek = True
-            await client.call_py.join_group_call(
+            await client.PyroUbot.join_group_call(
                 chat_id,
                 InputStream(
                     InputAudioStream(
