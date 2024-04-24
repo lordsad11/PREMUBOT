@@ -67,7 +67,7 @@ async def join_os(client, message):
         file = "./storage/vc.mp3"
         try:
             # daftar_join.append(chat_id)
-            await client.call.py.join_group_call(
+            await client.Ubot.py.join_group_call(
               chat_id,
               # if turun_dewek: turun_dewek = True
                 InputStream(
